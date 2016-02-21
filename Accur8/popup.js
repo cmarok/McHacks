@@ -129,9 +129,7 @@ document.addEventListener('DOMContentLoaded', function () {
 }, false);
 
 function changeRating(group, rating) {
-  if (group == "staff") {
-    if (rating == 1) {
-      alert("ss");
-    }
-  }
+  var xhttp = new XMLHttpRequest();
+  xhttp.open("GET", "ajaxstoresubject.php?rating=" + rating.toString() + "&category=" + group, true);
+  xhttp.send();
 }
