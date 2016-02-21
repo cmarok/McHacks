@@ -130,6 +130,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function changeRating(group, rating) {
   var xhttp = new XMLHttpRequest();
-  xhttp.open("GET", "insert.php?rating=" + rating.toString() + "&category=" + group, true);
+  xhttp.open("GET", "create.php?rating=" + rating.toString() + "&category=" + group, true);
   xhttp.send();
 }
