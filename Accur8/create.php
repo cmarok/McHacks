@@ -1,7 +1,9 @@
 <?php
-$servername = "localhost";
-$username = "username";
-$password = "password";
+
+$hostname = gethostname();
+$servername = $hostname;
+$username = "Accur8";
+$password = "abc";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password);
@@ -36,6 +38,27 @@ if ($conn->query($sql) === TRUE) {
     echo "Table MyGuests created successfully";
 } else {
     echo "Error creating table: " . $conn->error;
+}
+
+$sql = "INSERT INTO UserRatings (hotel_name, url, staff, food, hygin , parking, wifi, location)
+VALUES ()";
+
+if ($conn->query($sql) === TRUE) {
+    echo "New record created successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+$sql = "SELECT id, firstname, lastname FROM UserRatings";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
+    }
+} else {
+    echo "0 results";
 }
 
 $conn->close();
